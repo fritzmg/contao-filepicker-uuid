@@ -27,8 +27,11 @@ class FilepickerUuid extends \Controller
 	 */
 	public function loadCallback( $varValue )
 	{
-		if( strncmp($varValue, '{{file::', 8) === 0 )
+		if( is_string( $varValue ) && strncmp($varValue, '{{file::', 8) === 0 )
+		{
 			$varValue = $this->replaceInsertTags( $varValue, false );
+			$varValue = implode('/', array_map('urlencode', explode('/', $varValue)));
+		}
 		return $varValue;
 	}
 
@@ -44,7 +47,7 @@ class FilepickerUuid extends \Controller
 	public function saveCallback( $varValue )
 	{
 		// search for the file
-		if( ( $objFile = \FilesModel::findOneByPath( $varValue ) ) !== null )
+		if( ( $objFile = \FilesModel::findOneByPath( urldecode( $varValue ) ) ) !== null )
 		{
 			// convert the uuid
 			if( version_compare( VERSION . '.' . BUILD, '3.5.1', '<' ) )

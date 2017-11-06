@@ -1,3 +1,7 @@
+[![](https://img.shields.io/maintenance/yes/2016.svg)](https://github.com/fritzmg/contao-filepicker-uuid)
+[![](https://img.shields.io/packagist/v/fritzmg/contao-filepicker-uuid.svg)](https://packagist.org/packages/fritzmg/contao-filepicker-uuid)
+[![](https://img.shields.io/packagist/dt/fritzmg/contao-filepicker-uuid.svg)](https://packagist.org/packages/fritzmg/contao-filepicker-uuid)
+
 Contao Filepicker Uuid
 =====================
 
